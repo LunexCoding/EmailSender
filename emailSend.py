@@ -1,5 +1,9 @@
 import smtplib
 from email_validator import validate_email, EmailNotValidError
+from logger import logger
+
+
+log = logger.getLogger("emailSender")
 
 
 class EmailSender:
@@ -15,6 +19,7 @@ class EmailSender:
         sender, email, subject)
         msg += message
         mail_lib.sendmail(sender, email, msg.encode('utf8'))
+        log.info(f"Электронное письмо отправлено по адресу <{email}>")
         mail_lib.quit()
 
     def sendBulkEmail(self, emails, subject, message):
@@ -28,6 +33,9 @@ class EmailSender:
                     sender, email, subject)
                 msg += message
                 mail_lib.sendmail(sender, email, msg.encode('utf8'))
+                log.info(f"Электронное письмо отправлено по адресу <{email}>")
+            else:
+                log.error(f"Не валидный Email <{email}>")
         mail_lib.quit()
 
     def validateEmail(self, email):

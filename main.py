@@ -20,6 +20,7 @@ class MainWindow(QMainWindow):
 
         self.ui.errorLabelSettings.hide()
         self.ui.errorLabelEmail.hide()
+        self.ui.errorLabelBulkEmail.hide()
 
         self.ui.saveBtn.clicked.connect(self._saveSettings)
         self.ui.sendEmailBtn.clicked.connect(self._sendEmail)
@@ -134,8 +135,14 @@ class MainWindow(QMainWindow):
             message = self.ui.inputMessageBulk.toPlainText()
             emails = None
             with Path(path).open(encoding="utf-8") as file:
-                emails = file.readlines()
+                emails = file.read().split("\n")
             self.__emailSender.sendBulkEmail(emails, subject, message)
+            self.__clearSendBulkEmail()
+
+    def __clearSendBulkEmail(self):
+        self.ui.fileWithEmailAddressesBulk.clear()
+        self.ui.inputSubjectBulk.clear()
+        self.ui.inputMessageBulk.clear()
 
     def __validateBulkEmail(self):
         path = self.ui.fileWithEmailAddressesBulk.text()
