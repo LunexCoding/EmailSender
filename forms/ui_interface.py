@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'interfaceGthRZv.ui'
+## Form generated from reading UI file 'interfaceJzcyzX.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -584,10 +584,10 @@ class Ui_MainWindow(object):
         self.frame_23.setMaximumSize(QSize(16777215, 100))
         self.frame_23.setFrameShape(QFrame.StyledPanel)
         self.frame_23.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_14 = QHBoxLayout(self.frame_23)
-        self.horizontalLayout_14.setSpacing(0)
-        self.horizontalLayout_14.setObjectName(u"horizontalLayout_14")
-        self.horizontalLayout_14.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_29 = QVBoxLayout(self.frame_23)
+        self.verticalLayout_29.setSpacing(0)
+        self.verticalLayout_29.setObjectName(u"verticalLayout_29")
+        self.verticalLayout_29.setContentsMargins(0, 0, 0, 0)
         self.frame_24 = QFrame(self.frame_23)
         self.frame_24.setObjectName(u"frame_24")
         self.frame_24.setFrameShape(QFrame.StyledPanel)
@@ -606,7 +606,18 @@ class Ui_MainWindow(object):
         self.horizontalLayout_15.addWidget(self.label_14)
 
 
-        self.horizontalLayout_14.addWidget(self.frame_24, 0, Qt.AlignHCenter)
+        self.verticalLayout_29.addWidget(self.frame_24, 0, Qt.AlignHCenter|Qt.AlignVCenter)
+
+        self.errorLabelEmail = QLabel(self.frame_23)
+        self.errorLabelEmail.setObjectName(u"errorLabelEmail")
+        font4 = QFont()
+        font4.setPointSize(10)
+        font4.setBold(True)
+        font4.setWeight(75)
+        self.errorLabelEmail.setFont(font4)
+        self.errorLabelEmail.setStyleSheet(u"color: red;")
+
+        self.verticalLayout_29.addWidget(self.errorLabelEmail, 0, Qt.AlignHCenter)
 
 
         self.verticalLayout_24.addWidget(self.frame_23)
@@ -902,6 +913,13 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_11.addWidget(self.frame_17)
 
+        self.errorLabelSettings = QLabel(self.frame_15)
+        self.errorLabelSettings.setObjectName(u"errorLabelSettings")
+        self.errorLabelSettings.setFont(font4)
+        self.errorLabelSettings.setStyleSheet(u"color: #FF0000;")
+
+        self.verticalLayout_11.addWidget(self.errorLabelSettings, 0, Qt.AlignHCenter)
+
 
         self.verticalLayout_23.addWidget(self.frame_15)
 
@@ -1127,6 +1145,7 @@ class Ui_MainWindow(object):
         self.label_17.setText(QCoreApplication.translate("MainWindow", u"\u041d\u0430\u0441\u0442\u0440\u043e\u0439\u0442\u0435 SMTP:", None))
         self.openSettingsBtn.setText(QCoreApplication.translate("MainWindow", u" \u041d\u0430\u0441\u0442\u0440\u043e\u0438\u0442\u044c", None))
         self.label_14.setText(QCoreApplication.translate("MainWindow", u"\u041e\u0442\u043f\u0440\u0430\u0432\u043a\u0430 \u044d\u043b\u0435\u043a\u0442\u0440\u043e\u043d\u043d\u043e\u0433\u043e \u043f\u0438\u0441\u044c\u043c\u0430", None))
+        self.errorLabelEmail.setText(QCoreApplication.translate("MainWindow", u"ErrorLabel", None))
         self.label_9.setText(QCoreApplication.translate("MainWindow", u"Email:", None))
         self.label_10.setText(QCoreApplication.translate("MainWindow", u"\u0422\u0435\u043c\u0430 \u0441\u043e\u043e\u0431\u0449\u0435\u043d\u0438\u044f:", None))
         self.inputMessageEmail.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
@@ -1146,6 +1165,7 @@ class Ui_MainWindow(object):
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0442\u0435\u043a\u0441\u0442 \u0441\u043e\u043e\u0431\u0449\u0435\u043d\u0438\u044f</span></p></body></html>", None))
         self.sendBulkBtn.setText("")
         self.label_13.setText(QCoreApplication.translate("MainWindow", u"\u041d\u0430\u0441\u0442\u0440\u043e\u0439\u043a\u0438", None))
+        self.errorLabelSettings.setText(QCoreApplication.translate("MainWindow", u"ErrorLabel", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"SMTP Host:", None))
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"SMTP Port:", None))
         self.inputPortSettings.setText("")

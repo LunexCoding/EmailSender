@@ -998,7 +998,7 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
                    <property name="frameShadow">
                     <enum>QFrame::Raised</enum>
                    </property>
-                   <layout class="QHBoxLayout" name="horizontalLayout_14">
+                   <layout class="QVBoxLayout" name="verticalLayout_29">
                     <property name="spacing">
                      <number>0</number>
                     </property>
@@ -1014,7 +1014,7 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
                     <property name="bottomMargin">
                      <number>0</number>
                     </property>
-                    <item alignment="Qt::AlignHCenter">
+                    <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
                      <widget class="QFrame" name="frame_24">
                       <property name="frameShape">
                        <enum>QFrame::StyledPanel</enum>
@@ -1059,6 +1059,23 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
                         </widget>
                        </item>
                       </layout>
+                     </widget>
+                    </item>
+                    <item alignment="Qt::AlignHCenter">
+                     <widget class="QLabel" name="errorLabelEmail">
+                      <property name="font">
+                       <font>
+                        <pointsize>10</pointsize>
+                        <weight>75</weight>
+                        <bold>true</bold>
+                       </font>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">color: red;</string>
+                      </property>
+                      <property name="text">
+                       <string>ErrorLabel</string>
+                      </property>
                      </widget>
                     </item>
                    </layout>
@@ -1707,6 +1724,23 @@ p, li { white-space: pre-wrap; }
                         </widget>
                        </item>
                       </layout>
+                     </widget>
+                    </item>
+                    <item alignment="Qt::AlignHCenter">
+                     <widget class="QLabel" name="errorLabelSettings">
+                      <property name="font">
+                       <font>
+                        <pointsize>10</pointsize>
+                        <weight>75</weight>
+                        <bold>true</bold>
+                       </font>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">color: #FF0000;</string>
+                      </property>
+                      <property name="text">
+                       <string>ErrorLabel</string>
+                      </property>
                      </widget>
                     </item>
                    </layout>
