@@ -6,6 +6,7 @@ from Custom_Widgets.Widgets import *
 from email_validator import validate_email, EmailNotValidError
 
 from forms.ui_interface import Ui_MainWindow
+from emailSend import EmailSender
 
 
 SETTINGS_FILE = Path("settings.json")
@@ -29,14 +30,19 @@ class MainWindow(QMainWindow):
         if not self.__checkSettingsConfigIsExists():
             self.__createSettingsConfig()
         self.__settings = self.__loadSettings()
+        self.__emailSender = EmailSender(self.__settings)
 
     def __showErrorLabelSettings(self, message):
         self.ui.errorLabelSettings.setText(message)
         self.ui.errorLabelSettings.show()
 
     def __showErrorLabelEmail(self, message):
-        self.ui.errorLabelSettings.setText(message)
+        self.ui.errorLabelBulk.setText(message)
         self.ui.errorLabelEmail.show()
+
+    def __showErrorLabelBulk(self, message):
+        self.ui.errorLabelBulk.setText(message)
+        self.ui.errorLabelBulk.show()
 
     def __checkSettingsConfigIsExists(self):
         return True if SETTINGS_FILE.exists() else False
@@ -48,23 +54,28 @@ class MainWindow(QMainWindow):
             "email": "None",
             "password": "None"
         }
-        with SETTINGS_FILE.open("w", encoding="utf-8") as settingsConfig:
-            json.dump(__settings, settingsConfig, ensure_ascii=False, indent=4)
+        with SETTINGS_FILE.open("w", encoding="utf-8") as __settingsConfig:
+            json.dump(__settings, __settingsConfig, ensure_ascii=False, indent=4)
 
     def __loadSettings(self):
-        with SETTINGS_FILE.open(encoding="utf-8") as settings:
-            return json.load(settings)
+        with SETTINGS_FILE.open(encoding="utf-8") as __settingsConfig:
+            __settings = json.load(__settingsConfig)
+            self.ui.inputHostSettings.setText(__settings["host"])
+            self.ui.inputPortSettings.setText(str(__settings["port"]))
+            self.ui.inputEmailSettings.setText(__settings["email"])
+            self.ui.inputPasswordSettings.setText(__settings["password"])
+            return __settings
 
     def __saveSettings(self, __settings):
         self.__settings = __settings
-        with SETTINGS_FILE.open("w", encoding="utf-8") as settingsConfig:
-            json.dump(__settings, settingsConfig, ensure_ascii=False, indent=4)
+        with SETTINGS_FILE.open("w", encoding="utf-8") as __settingsConfig:
+            json.dump(__settings, __settingsConfig, ensure_ascii=False, indent=4)
 
     def _saveSettings(self):
         if self.__validateSettingsInput():
             host = self.ui.inputHostSettings.text()
             port = self.ui.inputPortSettings.text()
-            email = self.ui.inputEmail.text()
+            email = self.ui.inputEmailSettings.text()
             password = self.ui.inputPasswordSettings.text()
             self.__saveSettings(
                 dict(
@@ -78,7 +89,7 @@ class MainWindow(QMainWindow):
     def __validateSettingsInput(self):
         host = self.ui.inputHostSettings.text()
         port = self.ui.inputPortSettings.text()
-        email = self.ui.inputEmail.text()
+        email = self.ui.inputEmailSettings.text()
         password = self.ui.inputPasswordSettings.text()
         if all([len(host), len(port), len(email), len(password)]):
             if not port.isdigit():
@@ -98,16 +109,26 @@ class MainWindow(QMainWindow):
             email = validatedEmail["email"]
             return True
         except EmailNotValidError as e:
+            print('невалиден')
             return False
 
     def _sendEmail(self):
         if self.__validateEmailInput():
-            ...
+            email = self.ui.inputEmail.text()
+            subject = self.ui.inputSubjectEmail.text()
+            message = self.ui.inputMessageEmail.toPlainText()
+            self.__emailSender.sendEmail(email, subject, message)
+            self.__clearSendEmailForm()
+
+    def __clearSendEmailForm(self):
+        self.ui.inputEmail.clear()
+        self.ui.inputSubjectEmail.clear()
+        self.ui.inputMessageEmail.clear()
 
     def __validateEmailInput(self):
         email = self.ui.inputEmail.text()
         subject = self.ui.inputSubjectEmail.text()
-        message = self.ui.inputMessageEmail.text()
+        message = self.ui.inputMessageEmail.toPlainText()
         if all([len(email), len(subject), len(message)]):
             if not self.__validateEmail(email):
                 self.__showErrorLabelEmail("Невалидный Email!")

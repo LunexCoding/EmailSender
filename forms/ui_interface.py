@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'interfaceJzcyzX.ui'
+## Form generated from reading UI file 'interfaceQonIxl.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -737,10 +737,10 @@ class Ui_MainWindow(object):
         self.frame_13.setMaximumSize(QSize(16777215, 100))
         self.frame_13.setFrameShape(QFrame.StyledPanel)
         self.frame_13.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_6 = QHBoxLayout(self.frame_13)
-        self.horizontalLayout_6.setSpacing(0)
-        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
-        self.horizontalLayout_6.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_30 = QVBoxLayout(self.frame_13)
+        self.verticalLayout_30.setSpacing(0)
+        self.verticalLayout_30.setObjectName(u"verticalLayout_30")
+        self.verticalLayout_30.setContentsMargins(0, 0, 0, 0)
         self.frame_14 = QFrame(self.frame_13)
         self.frame_14.setObjectName(u"frame_14")
         self.frame_14.setFrameShape(QFrame.StyledPanel)
@@ -759,7 +759,14 @@ class Ui_MainWindow(object):
         self.horizontalLayout_10.addWidget(self.label_12)
 
 
-        self.horizontalLayout_6.addWidget(self.frame_14, 0, Qt.AlignHCenter)
+        self.verticalLayout_30.addWidget(self.frame_14, 0, Qt.AlignHCenter)
+
+        self.errorLabelBulk = QLabel(self.frame_13)
+        self.errorLabelBulk.setObjectName(u"errorLabelBulk")
+        self.errorLabelBulk.setFont(font4)
+        self.errorLabelBulk.setStyleSheet(u"color: red;")
+
+        self.verticalLayout_30.addWidget(self.errorLabelBulk, 0, Qt.AlignHCenter)
 
 
         self.verticalLayout_9.addWidget(self.frame_13)
@@ -812,18 +819,6 @@ class Ui_MainWindow(object):
         self.fileWithEmailAddressesBulk.setClearButtonEnabled(True)
 
         self.horizontalLayout_3.addWidget(self.fileWithEmailAddressesBulk)
-
-        self.selectFile = QPushButton(self.frame_9)
-        self.selectFile.setObjectName(u"selectFile")
-        self.selectFile.setFont(font1)
-        self.selectFile.setCursor(QCursor(Qt.PointingHandCursor))
-        self.selectFile.setStyleSheet(u"")
-        icon10 = QIcon()
-        icon10.addFile(u":/icons/file-text.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.selectFile.setIcon(icon10)
-        self.selectFile.setIconSize(QSize(24, 24))
-
-        self.horizontalLayout_3.addWidget(self.selectFile)
 
 
         self.verticalLayout_6.addWidget(self.frame_9, 0, Qt.AlignLeft)
@@ -953,7 +948,7 @@ class Ui_MainWindow(object):
 
         self.inputHostSettings = QLineEdit(self.frame_19)
         self.inputHostSettings.setObjectName(u"inputHostSettings")
-        self.inputHostSettings.setMinimumSize(QSize(250, 0))
+        self.inputHostSettings.setMinimumSize(QSize(150, 0))
         self.inputHostSettings.setMaximumSize(QSize(250, 16777215))
         self.inputHostSettings.setClearButtonEnabled(True)
 
@@ -975,7 +970,7 @@ class Ui_MainWindow(object):
 
         self.inputPortSettings = QLineEdit(self.frame_20)
         self.inputPortSettings.setObjectName(u"inputPortSettings")
-        self.inputPortSettings.setMinimumSize(QSize(60, 0))
+        self.inputPortSettings.setMinimumSize(QSize(100, 0))
         self.inputPortSettings.setMaximumSize(QSize(60, 16777215))
         self.inputPortSettings.setClearButtonEnabled(True)
 
@@ -997,7 +992,7 @@ class Ui_MainWindow(object):
 
         self.inputEmailSettings = QLineEdit(self.frame_21)
         self.inputEmailSettings.setObjectName(u"inputEmailSettings")
-        self.inputEmailSettings.setMinimumSize(QSize(150, 0))
+        self.inputEmailSettings.setMinimumSize(QSize(200, 0))
         self.inputEmailSettings.setMaximumSize(QSize(150, 16777215))
         self.inputEmailSettings.setClearButtonEnabled(True)
 
@@ -1032,9 +1027,9 @@ class Ui_MainWindow(object):
         self.saveBtn = QPushButton(self.frame_16)
         self.saveBtn.setObjectName(u"saveBtn")
         self.saveBtn.setCursor(QCursor(Qt.PointingHandCursor))
-        icon11 = QIcon()
-        icon11.addFile(u":/icons/save.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.saveBtn.setIcon(icon11)
+        icon10 = QIcon()
+        icon10.addFile(u":/icons/save.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.saveBtn.setIcon(icon10)
         self.saveBtn.setIconSize(QSize(24, 24))
 
         self.verticalLayout_12.addWidget(self.saveBtn, 0, Qt.AlignHCenter)
@@ -1155,8 +1150,8 @@ class Ui_MainWindow(object):
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0442\u0435\u043a\u0441\u0442 \u0441\u043e\u043e\u0431\u0449\u0435\u043d\u0438\u044f</span></p></body></html>", None))
         self.sendEmailBtn.setText("")
         self.label_12.setText(QCoreApplication.translate("MainWindow", u"\u041e\u0442\u043f\u0440\u0430\u0432\u043a\u0430 \u044d\u043b\u0435\u043a\u0442\u0440\u043e\u043d\u043d\u043e\u0439 \u0440\u0430\u0441\u0441\u044b\u043b\u043a\u0438", None))
-        self.label.setText(QCoreApplication.translate("MainWindow", u"\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0444\u0430\u0439\u043b \u0441 \u0430\u0434\u0440\u0435\u0441\u0430\u043c\u0438 \u043b\u0438\u0431\u043e \u0443\u043a\u0430\u0436\u0438\u0442\u0435 \u043f\u0443\u0442\u044c \u043a \u0444\u0430\u0439\u043b\u0443:", None))
-        self.selectFile.setText(QCoreApplication.translate("MainWindow", u"\u0412\u044b\u0431\u0440\u0430\u0442\u044c \u0444\u0430\u0439\u043b", None))
+        self.errorLabelBulk.setText(QCoreApplication.translate("MainWindow", u"errorLabel", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"\u041f\u0443\u0442\u044c \u043a \u0444\u0430\u0439\u043b\u0443 \u0441 \u0430\u0434\u0440\u0435\u0441\u0430\u043c\u0438:", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"\u0422\u0435\u043c\u0430 \u0441\u043e\u043e\u0431\u0449\u0435\u043d\u0438\u044f:", None))
         self.inputMessageBulk.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
