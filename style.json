@@ -1,0 +1,99 @@
+{
+	"QMainWindow":[
+		{
+			"tittle":"EmailSender",
+			"icon":":/images/email.png",
+			"frameless": true,
+			"transluscentBg": true,
+			"sizeGrip": "sizeGrip",
+			"navigation":[
+				{
+					"minimize":"minimizeBtn",
+					"close": "closeBtn",
+					"restore":[
+						{	
+							"buttonName": "restoreBtn",
+							"normalIcon": ":/icons/square.svg",
+							"maximizedIcon": ":/icons/copy.svg"
+						}
+					],
+					"moveWindow": "headerContainer",
+					"tittleBar": "headerContainer"
+				}
+			]
+		}
+	],
+	"QCustomSlideMenu": [
+		{
+			"name": "leftMenuContainer",
+			"defaultSize": [{
+				"width": 45,
+				"height": "parent"
+			}],
+			"collapsedSize": [{
+				"width": 45,
+				"height": "parent"
+			}],
+			"expandedSize": [{
+				"width": 150,
+				"height": "parent"
+			}],
+			"toggleButton": [{
+				"buttonName": "menuBtn",
+				"icons": [{
+					"whenMenuIsCollapsed": ":/icons/align-justify.svg",
+					"whenMenuIsExpanded": ":/icons/chevron-left.svg"
+				}]
+			}],
+			"menuTransitionAnimation": [{
+				"animationDuration": 500,
+				"animationEasingCurve": "Linear"
+			}]
+		}
+	],
+	"QStackedWidget":[
+		{
+			"name": "mainPages",
+			"navigation":[
+				{
+					"navigationButtons": [
+						{
+							"homeBtn": "pageHome",
+							"openSettingsBtn": "pageSettings",
+							"settingsBtn": "pageSettings",
+                            "singleMailBtn": "emailPage",
+                            "bulkEmailBtn": "bulkEmailPage"
+						}
+					]
+				}
+			]
+		}
+    ],
+	"QPushButtonGroup": [
+		{
+			"Buttons": [
+				"homeBtn",
+				"singleMailBtn",
+				"bulkEmailBtn",
+                "settingsBtn"
+			],
+			"Style":[
+				{
+					"Active": "background-color: #1f232a;",
+					"NotActive": ""
+				}
+			]
+		},
+        {
+              "Buttons": [
+                  "settingsBtn"
+              ],
+              "Style":[
+                  {
+                      "Active": "background-color: #2c313c;",
+                      "NotActive": ""
+                  }
+              ]
+          }
+	]
+}
