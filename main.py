@@ -3,8 +3,6 @@ from pathlib import Path
 
 from Custom_Widgets.Widgets import *
 
-from email_validator import validate_email, EmailNotValidError
-
 from forms.ui_interface import Ui_MainWindow
 from emailSend import EmailSender
 
@@ -37,12 +35,12 @@ class MainWindow(QMainWindow):
         self.ui.errorLabelSettings.show()
 
     def __showErrorLabelEmail(self, message):
-        self.ui.errorLabelBulk.setText(message)
+        self.ui.errorLabelEmail.setText(message)
         self.ui.errorLabelEmail.show()
 
-    def __showErrorLabelBulk(self, message):
-        self.ui.errorLabelBulk.setText(message)
-        self.ui.errorLabelBulk.show()
+    def __showErrorLabelBulkEmail(self, message):
+        self.ui.errorLabelBulkEmail.setText(message)
+        self.ui.errorLabelBulkEmail.show()
 
     def __checkSettingsConfigIsExists(self):
         return True if SETTINGS_FILE.exists() else False
@@ -95,22 +93,13 @@ class MainWindow(QMainWindow):
             if not port.isdigit():
                 self.__showErrorLabelSettings("Порт должен быть числового типа!")
                 return False
-            if not self.__validateEmail(email):
+            if not self.__emailSender.validateEmail(email):
                 self.__showErrorLabelSettings("Невалидный Email!")
                 return False
             self.ui.errorLabelSettings.hide()
             return True
         self.__showErrorLabelSettings("Все поля должны быть заполнены!")
         return False
-
-    def __validateEmail(self, email):
-        try:
-            validatedEmail = validate_email(email)
-            email = validatedEmail["email"]
-            return True
-        except EmailNotValidError as e:
-            print('невалиден')
-            return False
 
     def _sendEmail(self):
         if self.__validateEmailInput():
@@ -130,7 +119,7 @@ class MainWindow(QMainWindow):
         subject = self.ui.inputSubjectEmail.text()
         message = self.ui.inputMessageEmail.toPlainText()
         if all([len(email), len(subject), len(message)]):
-            if not self.__validateEmail(email):
+            if not self.__emailSender.validateEmail(email):
                 self.__showErrorLabelEmail("Невалидный Email!")
                 return False
             self.ui.errorLabelEmail.hide()
@@ -139,7 +128,28 @@ class MainWindow(QMainWindow):
         return False
 
     def _sendBulk(self):
-        ...
+        if self.__validateBulkEmail():
+            path = self.ui.fileWithEmailAddressesBulk.text()
+            subject = self.ui.inputSubjectBulk.text()
+            message = self.ui.inputMessageBulk.toPlainText()
+            emails = None
+            with Path(path).open(encoding="utf-8") as file:
+                emails = file.readlines()
+            self.__emailSender.sendBulkEmail(emails, subject, message)
+
+    def __validateBulkEmail(self):
+        path = self.ui.fileWithEmailAddressesBulk.text()
+        subject = self.ui.inputSubjectBulk.text()
+        message = self.ui.inputMessageBulk.toPlainText()
+        if all([len(path), len(subject), len(message)]):
+            path = Path(path)
+            if not path.exists() or not path.is_file():
+                self.__showErrorLabelEmail("Не существующий файл!")
+                return False
+            self.ui.errorLabelEmail.hide()
+            return True
+        self.__showErrorLabelEmail("Все поля должны быть заполнены!")
+        return False
 
 
 if __name__ == "__main__":

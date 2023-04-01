@@ -1,4 +1,5 @@
 import smtplib
+from email_validator import validate_email, EmailNotValidError
 
 
 class EmailSender:
@@ -16,14 +17,23 @@ class EmailSender:
         mail_lib.sendmail(sender, email, msg.encode('utf8'))
         mail_lib.quit()
 
-    def sendBulkEmail(self, emails, message):
+    def sendBulkEmail(self, emails, subject, message):
         sender = self.__settings["email"]
         sender_password = self.__settings["password"]
         mail_lib = smtplib.SMTP_SSL(self.__settings["host"], self.__settings["port"])
         mail_lib.login(sender, sender_password)
         for email in emails:
-            msg = 'From: %s\r\nTo: %s\r\nContent-Type: text/plain; charset="utf-8"\r\nSubject: %s\r\n\r\n' % (
-                sender, email, 'Тема сообщения')
-            msg += message
-            mail_lib.sendmail(sender, email, msg.encode('utf8'))
+            if self.validateEmail(email):
+                msg = 'From: %s\r\nTo: %s\r\nContent-Type: text/plain; charset="utf-8"\r\nSubject: %s\r\n\r\n' % (
+                    sender, email, subject)
+                msg += message
+                mail_lib.sendmail(sender, email, msg.encode('utf8'))
         mail_lib.quit()
+
+    def validateEmail(self, email):
+        try:
+            validatedEmail = validate_email(email)
+            email = validatedEmail["email"]
+            return True
+        except EmailNotValidError as e:
+            return False

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'interfaceQonIxl.ui'
+## Form generated from reading UI file 'interfaceUIspAm.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -761,12 +761,12 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_30.addWidget(self.frame_14, 0, Qt.AlignHCenter)
 
-        self.errorLabelBulk = QLabel(self.frame_13)
-        self.errorLabelBulk.setObjectName(u"errorLabelBulk")
-        self.errorLabelBulk.setFont(font4)
-        self.errorLabelBulk.setStyleSheet(u"color: red;")
+        self.errorLabelBulkEmail = QLabel(self.frame_13)
+        self.errorLabelBulkEmail.setObjectName(u"errorLabelBulkEmail")
+        self.errorLabelBulkEmail.setFont(font4)
+        self.errorLabelBulkEmail.setStyleSheet(u"color: red;")
 
-        self.verticalLayout_30.addWidget(self.errorLabelBulk, 0, Qt.AlignHCenter)
+        self.verticalLayout_30.addWidget(self.errorLabelBulkEmail, 0, Qt.AlignHCenter)
 
 
         self.verticalLayout_9.addWidget(self.frame_13)
@@ -1150,7 +1150,7 @@ class Ui_MainWindow(object):
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0442\u0435\u043a\u0441\u0442 \u0441\u043e\u043e\u0431\u0449\u0435\u043d\u0438\u044f</span></p></body></html>", None))
         self.sendEmailBtn.setText("")
         self.label_12.setText(QCoreApplication.translate("MainWindow", u"\u041e\u0442\u043f\u0440\u0430\u0432\u043a\u0430 \u044d\u043b\u0435\u043a\u0442\u0440\u043e\u043d\u043d\u043e\u0439 \u0440\u0430\u0441\u0441\u044b\u043b\u043a\u0438", None))
-        self.errorLabelBulk.setText(QCoreApplication.translate("MainWindow", u"errorLabel", None))
+        self.errorLabelBulkEmail.setText(QCoreApplication.translate("MainWindow", u"errorLabel", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"\u041f\u0443\u0442\u044c \u043a \u0444\u0430\u0439\u043b\u0443 \u0441 \u0430\u0434\u0440\u0435\u0441\u0430\u043c\u0438:", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"\u0422\u0435\u043c\u0430 \u0441\u043e\u043e\u0431\u0449\u0435\u043d\u0438\u044f:", None))
         self.inputMessageBulk.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"

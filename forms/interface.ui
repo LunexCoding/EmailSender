@@ -1389,7 +1389,7 @@ p, li { white-space: pre-wrap; }
                      </widget>
                     </item>
                     <item alignment="Qt::AlignHCenter">
-                     <widget class="QLabel" name="errorLabelBulk">
+                     <widget class="QLabel" name="errorLabelBulkEmail">
                       <property name="font">
                        <font>
                         <pointsize>10</pointsize>
