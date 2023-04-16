@@ -1,4 +1,4 @@
-import json
+import webbrowser
 from pathlib import Path
 
 from Custom_Widgets.Widgets import *
@@ -25,11 +25,16 @@ class MainWindow(QMainWindow):
         self.ui.saveBtn.clicked.connect(self._saveSettings)
         self.ui.sendEmailBtn.clicked.connect(self._sendEmail)
         self.ui.sendBulkBtn.clicked.connect(self._sendBulk)
+        self.ui.openWebBtn.clicked.connect(self._openWebPage)
 
         if not self.__checkSettingsConfigIsExists():
             self.__createSettingsConfig()
         self.__settings = self.__loadSettings()
         self.__emailSender = EmailSender(self.__settings)
+
+    @staticmethod
+    def _openWebPage():
+        webbrowser.open("https://help.mail.ru/mail/mailer/popsmtp")
 
     def __showErrorLabelSettings(self, message):
         self.ui.errorLabelSettings.setText(message)
@@ -43,10 +48,12 @@ class MainWindow(QMainWindow):
         self.ui.errorLabelBulkEmail.setText(message)
         self.ui.errorLabelBulkEmail.show()
 
-    def __checkSettingsConfigIsExists(self):
+    @staticmethod
+    def __checkSettingsConfigIsExists():
         return True if SETTINGS_FILE.exists() else False
 
-    def __createSettingsConfig(self):
+    @staticmethod
+    def __createSettingsConfig():
         __settings = {
             "host": "None",
             "port": "None",
@@ -133,7 +140,6 @@ class MainWindow(QMainWindow):
             path = self.ui.fileWithEmailAddressesBulk.text()
             subject = self.ui.inputSubjectBulk.text()
             message = self.ui.inputMessageBulk.toPlainText()
-            emails = None
             with Path(path).open(encoding="utf-8") as file:
                 emails = file.read().split("\n")
             self.__emailSender.sendBulkEmail(emails, subject, message)
