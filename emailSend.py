@@ -38,10 +38,11 @@ class EmailSender:
                 log.error(f"Не валидный Email <{email}>")
         mail_lib.quit()
 
-    def validateEmail(self, email):
+    @staticmethod
+    def validateEmail(email):
         try:
             validatedEmail = validate_email(email)
             email = validatedEmail["email"]
             return True
-        except EmailNotValidError as e:
+        except EmailNotValidError:
             return False

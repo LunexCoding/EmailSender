@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'interfaceUIspAm.ui'
+## Form generated from reading UI file 'interfaceXmjiPX.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -1050,38 +1050,6 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_10.addWidget(self.mainBodyContent)
 
-        self.footerContainer = QWidget(self.mainBodyContainer)
-        self.footerContainer.setObjectName(u"footerContainer")
-        self.horizontalLayout_11 = QHBoxLayout(self.footerContainer)
-        self.horizontalLayout_11.setSpacing(0)
-        self.horizontalLayout_11.setObjectName(u"horizontalLayout_11")
-        self.horizontalLayout_11.setContentsMargins(0, 0, 0, 0)
-        self.frame_10 = QFrame(self.footerContainer)
-        self.frame_10.setObjectName(u"frame_10")
-        self.frame_10.setFrameShape(QFrame.StyledPanel)
-        self.frame_10.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_12 = QHBoxLayout(self.frame_10)
-        self.horizontalLayout_12.setObjectName(u"horizontalLayout_12")
-        self.label_15 = QLabel(self.frame_10)
-        self.label_15.setObjectName(u"label_15")
-
-        self.horizontalLayout_12.addWidget(self.label_15)
-
-
-        self.horizontalLayout_11.addWidget(self.frame_10)
-
-        self.sizeGrip = QFrame(self.footerContainer)
-        self.sizeGrip.setObjectName(u"sizeGrip")
-        self.sizeGrip.setMinimumSize(QSize(30, 30))
-        self.sizeGrip.setMaximumSize(QSize(30, 30))
-        self.sizeGrip.setFrameShape(QFrame.StyledPanel)
-        self.sizeGrip.setFrameShadow(QFrame.Raised)
-
-        self.horizontalLayout_11.addWidget(self.sizeGrip)
-
-
-        self.verticalLayout_10.addWidget(self.footerContainer)
-
 
         self.horizontalLayout.addWidget(self.mainBodyContainer)
 
@@ -1167,6 +1135,5 @@ class Ui_MainWindow(object):
         self.label_7.setText(QCoreApplication.translate("MainWindow", u"\u042d\u043b\u0435\u043a\u0442\u0440\u043e\u043d\u043d\u0430\u044f \u043f\u043e\u0447\u0442\u0430:", None))
         self.label_8.setText(QCoreApplication.translate("MainWindow", u"\u041f\u0430\u0440\u043e\u043b\u044c:", None))
         self.saveBtn.setText("")
-        self.label_15.setText(QCoreApplication.translate("MainWindow", u"Copyright LunexCoding", None))
     # retranslateUi
 
